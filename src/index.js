@@ -12,62 +12,62 @@ import { Header } from './components/Header';
 import { ErrorPage } from './components/ErrorPage';
 
 const router = createBrowserRouter([{
-  path: "/",
+  path: "/myBlog",
   element: <Homepage />,
   loader: getInitBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/home",
+  path: "/myBlog/home",
   element: <Homepage />,
   loader: getBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/home/:page",
+  path: "/myBlog/home/:page",
   element: <Homepage />,
   loader: getBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "tag/:tagName",
+  path: "/myBlog/tag/:tagName",
   element: <Homepage />,
   loader: getBlogsFromTag,
   errorElement: <ErrorPage />
 }, {
-  path: "tag/:tagName/:page",
+  path: "/myBlog/tag/:tagName/:page",
   element: <Homepage />,
   loader: getBlogsFromTag,
   errorElement: <ErrorPage />
 }, {
-  path: "/recent",
+  path: "/myBlog/recent",
   element: <Homepage />,
   loader: getRecentBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/recent/:page",
+  path: "/myBlog/recent/:page",
   element: <Homepage />,
   loader: getRecentBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/popular",
+  path: "/myBlog/popular",
   element: <Homepage />,
   loader: getPopularBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/popular/:page",
+  path: "/myBlog/popular/:page",
   element: <Homepage />,
   loader: getPopularBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/search/:searchStr/",
+  path: "/myBlog/search/:searchStr/",
   element: <Homepage />,
   loader: searchBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/search/:searchStr/:page",
+  path: "/myBlog/search/:searchStr/:page",
   element: <Homepage />,
   loader: searchBlogs,
   errorElement: <ErrorPage />
 }, {
-  path: "/:id",
+  path: "/myBlog/:id",
   element: <Blog />,
   loader: getBlog,
   errorElement: <ErrorPage />
