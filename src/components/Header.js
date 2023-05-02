@@ -21,7 +21,7 @@ export function Header() {
         <Fragment>
             <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block sticky-top" style={{ background: '#ffbd7c'}}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <a className="navbar-brand" href="/myBlog">
                         <img src={logo} height={100} alt='Menu' />
                     </a>
                     <Fragment>
