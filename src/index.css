@@ -1,0 +1,26 @@
+body {
+    background-image: url('https://cdn.wallpapersafari.com/92/43/epa9ZP.jpg');
+    background-size: contain;
+}
+
+.card {
+    background-color: rgb(255, 246, 237);
+    border-radius: 1.5rem;
+}
+
+.hiddEle {
+    opacity: 0;
+    transform: translateX(10%);
+    transition: ease-in-out 500ms;
+}
+
+.showEle {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.card-title::first-letter {
+    font-size: 4rem;
+    font-weight: bold;
+    font-family: cursive;
+}
