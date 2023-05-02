@@ -27,13 +27,13 @@ export function Header() {
                     <Fragment>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href='/home/1' className="nav-link btn">Home</a>
+                                <a href='/myBlog/home/1' className="nav-link btn">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a href='/recent/1' className="nav-link btn">Recent</a>
+                                <a href='/myBlog/recent/1' className="nav-link btn">Recent</a>
                             </li>
                             <li className="nav-item">
-                                <a href='/popular/1' className="nav-link btn">Popular</a>
+                                <a href='/myBlog/popular/1' className="nav-link btn">Popular</a>
                             </li>
                         </ul>
                     </Fragment>
@@ -54,13 +54,13 @@ export function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href='/home/1' className="nav-link btn">Home</a>
+                                <a href='/myBlog/home/1' className="nav-link btn">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a href='/recent/1' className="nav-link btn">Recent</a>
+                                <a href='/myBlog/recent/1' className="nav-link btn">Recent</a>
                             </li>
                             <li className="nav-item">
-                                <a href='/popular/1' className="nav-link btn">Popular</a>
+                                <a href='/myBlog/popular/1' className="nav-link btn">Popular</a>
                             </li>
                             <li className='nav-item'>
                                 <div className="d-flex">

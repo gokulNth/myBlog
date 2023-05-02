@@ -12,15 +12,15 @@ export default function BlogsList(props) {
                 <div className="p-2 hiddEle" style={{ maxHeight: '50rem' }} key={index}>
                     <div className="card">
                         {heading && <div className="card-header">
-                            <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
+                            <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
                                 {createHeading(heading)}
                             </Link>
                         </div>}
-                        {coverImage && <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
+                        {coverImage && <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
                             <img src={coverImage} style={{ height: '30rem', objectFit: 'cover' }} className="card-img-top" alt={id}></img>
                         </Link>}
                         <div className="card-body">
-                            <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                            <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                 {subHeading && <h6 className="card-subtitle mb-2">{subHeading}</h6>}
                                 <footer className={`${subHeading && 'blockquote-footer'}`}>
                                     <p className="card-text">{partialContent}...</p>
