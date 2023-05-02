@@ -14,7 +14,7 @@ export function Header() {
         }
     }
     function handleSearch() {
-        window.location.pathname = `/search/${searchTag}`
+        window.location.pathname = `/myBlog/search/${searchTag}`
     }
 
     return (
@@ -45,8 +45,8 @@ export function Header() {
             </nav>
             <nav className="navbar navbar-expand-lg navbar-light d-block d-lg-none" style={{ background: '#ffbd7c' }}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
-                        <img src={logo} height={150} alt='Menu' />
+                    <a className="navbar-brand" href="/myBlog">
+                        <img src={logo} height={70} alt='Menu' />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

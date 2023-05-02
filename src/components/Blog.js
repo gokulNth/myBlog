@@ -14,7 +14,7 @@ function Blog() {
                         <div style={{ fontSize: '1.2rem' }}>
                             <h4 className="text-muted">{subHeading} {
                                 blogTag.map((tag, index) => {
-                                    return <Fragment key={index}><Link to={`/tag/${tag.toLowerCase()}/1`} style={{ fontSize: 10, textDecoration: 'none' }} className="badge bg-success">{tag}</Link>&nbsp;</Fragment>
+                                    return <Fragment key={index}><Link to={`/myBlog/tag/${tag.toLowerCase()}/1`} style={{ fontSize: 10, textDecoration: 'none' }} className="badge bg-success">{tag}</Link>&nbsp;</Fragment>
                                 })
                             } </h4>
                             <br />
@@ -27,7 +27,7 @@ function Blog() {
                         <div className="text-center" style={{ margin: '15px' }}>
                             Related Tags: <em>
                                 {relatedTags.map((tag, index) => {
-                                    return <div key={index}><Link to={`/tag/${tag.toLowerCase()}/1`} className="badge bg-secondary">{tag}</Link></div>
+                                    return <div key={index}><Link to={`/myBlog/tag/${tag.toLowerCase()}/1`} className="badge bg-secondary">{tag}</Link></div>
                                 })}
                             </em>
                         </div>
