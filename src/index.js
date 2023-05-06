@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css'
 import {
-  createHashRouter,
+  createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
 import Blog from './components/Blog';
@@ -13,7 +13,7 @@ import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
-const router = createHashRouter([{
+const router = createBrowserRouter([{
   path: "/",
   element: <Homepage />,
   loader: getInitBlogs,

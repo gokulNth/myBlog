@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLoaderData, Link, useLocation } from 'react-router-dom';
+import { useLoaderData, useLocation } from 'react-router-dom';
 import BlogsList from './BlogsList';
 import { Header } from './Header'
 
