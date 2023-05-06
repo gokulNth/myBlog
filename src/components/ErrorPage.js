@@ -1,6 +1,7 @@
 import React from 'react'
 import errorPage from '../BlogData/Images/errorPage.webp'
 import noData from '../BlogData/Images/noData.png'
+import loading from '../BlogData/Images/loading.gif'
 import { Header } from './Header'
 
 export function ErrorPage() {
@@ -28,4 +29,14 @@ export function EmptyPage() {
             }}>No Data Found</h1>
         </div>
     </React.Fragment>
+}
+
+export function LoadingPage() {
+    return (
+        <React.Fragment>
+            <div className='text-center' style={{ marginTop: '35vh' }}>
+                <img src={loading} alt="Loading..." />
+            </div>
+        </React.Fragment>
+    )
 }

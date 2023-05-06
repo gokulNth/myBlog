@@ -29,10 +29,10 @@ export default function BlogsList(props) {
                                     <p className="card-text">{partialContent}...</p>
                                 </footer>
                             </Link>
-                            <div className='py-2'>
-                                <span className="m-1 text-success"> <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/72/null/external-clapping-virus-icongeek26-linear-colour-icongeek26.png" alt='clapIcon' width={30} /> {claps}</span>
-                                <span className="m-1 text-success"> <img src="https://img.icons8.com/color/72/null/filled-like.png" alt='heartIcon' width={30} /> {hearts}</span>
-                            </div>
+                            {/* <div className='py-2'>
+                                <span className="m-1 text-success unselect"> <img src="https://img.icons8.com/external-icongeek26-linear-colour-icongeek26/72/null/external-clapping-virus-icongeek26-linear-colour-icongeek26.png" alt='clapIcon' width={30} /> {claps}</span>
+                                <span className="m-1 text-success unselect"> <img src="https://img.icons8.com/color/72/null/filled-like.png" alt='heartIcon' width={30} /> {hearts}</span>
+                            </div> */}
                             <div className='text-muted' style={{ fontSize: 13 }}>Blogged at: {new Date(parseInt(createdTime)).toLocaleString(navigator.languages[0], {
                                 year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit", hour12: true
                             })}</div>
