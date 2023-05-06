@@ -23,7 +23,7 @@
     try{
       Array.prototype.hasSome = function (ele) {
         if (!ele) throw "Need search value"
-        return this.some(i => i.toLowerCase().includes(ele));
+        return this.some(i => i.toLowerCase().includes(ele.toLowerCase()));
       }
       Array.prototype.sortByKey = function (key, order) {
         if (!this[0][key]) throw "Enter valid key"

@@ -55,8 +55,12 @@ export function searchBlogs({params}) {
     const { searchStr, page = 1 } = params;
     const str = searchStr.trim().toLowerCase();
     const pageNum = parseInt(page);
-    const blogDataByTag = Object.assign([], data.filter(({ blogTag = [], relatedTags = [], heading = "" }) => {
-        return !!str ? (blogTag.includes(str) || relatedTags.includes(str) || (heading?.props?.children || "").includes(str)) : false;
+    const blogDataByTag = Object.assign([], data.filter(({ blogTag = [], relatedTags = [], heading = {}, subHeading = {}, content = {} }) => {
+        return !!str ? (blogTag.hasSome(str)
+            || relatedTags.hasSome(str) || content.toLowerCase().includes(str.toLowerCase())
+            || (heading?.props?.children?.toLowerCase() || "").includes(str.toLowerCase()))
+            || (subHeading?.props?.children?.toLowerCase() || "").includes(str.toLowerCase())
+            : false;
     }));
     const blogsInPage = blogDataByTag.slice((pageNum - 1) * 5, pageNum * 5)
     return blogsInPage.length ? generateResp(pageNum, getBlogData(blogsInPage.sortByKey("createdTime", true)), blogDataByTag) : undefined;
@@ -80,6 +84,7 @@ function generateResp(pageNum, blogData, allData) {
         data: blogData,
         hasNext: allData.length > ((pageNum) * 5),
         hasPrev: pageNum > 1,
-        page: pageNum
+        page: pageNum,
+        totalPage: allData.length
     })
 }
