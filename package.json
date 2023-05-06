@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://gokulnth.github.io/myBlog",
   "dependencies": {
-    "gh-pages": "^5.0.0",
+    "@fvilers/disable-react-devtools": "^1.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.0",

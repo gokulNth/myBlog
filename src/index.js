@@ -9,6 +9,9 @@ import Blog from './components/Blog';
 import { getBlog, getBlogs, getBlogsFromTag, getInitBlogs, getPopularBlogs, getRecentBlogs, searchBlogs } from './API';
 import { Homepage } from './components/Homepage';
 import { ErrorPage } from './components/ErrorPage';
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
+
+if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 const router = createHashRouter([{
   path: "/",
