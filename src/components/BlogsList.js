@@ -9,7 +9,7 @@ export default function BlogsList(props) {
             const { id, heading, subHeading = null, likes, partialContent, coverImage, createdTime } = blog || {};
             const { claps = 0, hearts = 0 } = likes || {};
             return (
-                <div className="p-2" style={{ maxHeight: '50rem' }} key={index}>
+                <div className="p-2 hiddEle" style={{ maxHeight: '50rem' }} key={index}>
                     <div className="card">
                         {heading && <div className="card-header">
                             <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>

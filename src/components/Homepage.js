@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLoaderData, Link } from 'react-router-dom';
+import { useLoaderData, Link, useLocation } from 'react-router-dom';
 import BlogsList from './BlogsList';
 import { Header } from './Header'
 
@@ -24,6 +24,11 @@ function navigatePage(page) {
 
 export function Homepage() {
     const { data = [], hasNext, hasPrev, page } = useLoaderData()
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+        mouseAction()
+    }, [pathname]);
     return <div>
         <Header />
         {data.length
