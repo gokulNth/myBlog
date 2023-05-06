@@ -18,9 +18,9 @@ function mouseAction() {
 }
 
 function navigatePage(page) {
-    let route = window.location.pathname.split('/')
+    let route = window.location.hash.split('/')
     route[route.length - 1] = page
-    window.location.pathname = route.join('/')
+    window.location.hash = route.join('/')
 }
 
 export function Homepage() {
