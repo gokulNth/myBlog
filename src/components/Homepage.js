@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, Link } from 'react-router-dom';
 import BlogsList from './BlogsList';
+import { Header } from './Header'
 
 const observer = new IntersectionObserver(enteries => {
     enteries.forEach(entry =>
@@ -20,21 +21,27 @@ export function Homepage() {
     useEffect(() => {
         mouseAction()
     }, [])
-    return data.length ? <div className='container'>
-        <div className="row">
-            <BlogsList data={data} />
-        </div>
-        {(hasNext || hasPrev) && <nav aria-label="Page navigation example">
-            <ul className="pagination pagination-lg justify-content-center">
-                <li className={`page-item ${!hasPrev && 'disabled'}`}>
-                    <a className="page-link" href={`${page-1}`}>&laquo;</a>
-                </li>
-                <li className={`page-item ${!hasNext && 'disabled'}`}>
-                    <a className="page-link" href={`${page+1}`}>&raquo;</a>
-                </li>
-            </ul>
-        </nav>}
-    </div> : <div>
-        Oops We cannot find blog(s) with requested tag(s)
+    return <div>
+        <Header />
+        {data.length
+            ? <div className='container'>
+                <div className="row">
+                    <BlogsList data={data} />
+                </div>
+                {(hasNext || hasPrev) && <nav aria-label="Page navigation example">
+                    <ul className="pagination pagination-lg justify-content-center">
+                        <li className={`page-item ${!hasPrev && 'disabled'}`}>
+                            <Link className="page-link" to={`/${page - 1}`}>&laquo;</Link>
+                        </li>
+                        <li className={`page-item ${!hasNext && 'disabled'}`}>
+                            <Link className="page-link" to={`/${page + 1}`}>&raquo;</Link>
+                        </li>
+                    </ul>
+                </nav>}
+            </div>
+            : <div>
+                Oops We cannot find blog(s) with requested tag(s)
+            </div>
+        }
     </div>
 }

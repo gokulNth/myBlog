@@ -8,7 +8,6 @@ import {
 import Blog from './components/Blog';
 import { getBlog, getBlogs, getBlogsFromTag, getInitBlogs, getPopularBlogs, getRecentBlogs, searchBlogs } from './API';
 import { Homepage } from './components/Homepage';
-import { Header } from './components/Header';
 import { ErrorPage } from './components/ErrorPage';
 
 const router = createHashRouter([{
@@ -51,8 +50,7 @@ const router = createHashRouter([{
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <Header />
-      <div className='m-2 p-2'>
+      <div className='m-1'>
         <RouterProvider router={router} fallbackElement={<div>Loading...</div>} />
       </div>
   </React.StrictMode>

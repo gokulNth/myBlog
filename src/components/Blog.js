@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import { useLoaderData, Link } from 'react-router-dom';
 import { createHeading } from "./util";
+import { Header } from './Header';
 
 function Blog() {
     const { content, id, relatedTags, coverImage, subHeading, heading, blogTag } = (useLoaderData() || {});
     return (
         <React.Fragment>
-            <div className="container">
+            <Header />
+            <div className="container my-2">
                 <div className="row">
                     {heading && <div className="text-center">{createHeading(heading)}</div>}
                     {coverImage && <img src={coverImage} className="rounded mx-auto d-block" style={{ width: '70em', height: '35em', marginBottom: '2em' }} alt={`cover_${id}`} />}

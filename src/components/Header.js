@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import logo from '../logo.png';
+import { Link } from 'react-router-dom';
 
 export function Header() {
     const [searchTag, setSearchTag] = useState("");
@@ -14,26 +15,26 @@ export function Header() {
         }
     }
     function handleSearch() {
-        window.location.pathname = `/search/${searchTag}`
+        window.location.hash = `/search/${searchTag}`
     }
 
     return (
         <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block sticky-top" style={{ background: '#ffbd7c'}}>
+            <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block sticky-top" style={{ background: '#feae00'}}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="/">
                         <img src={logo} height={100} alt='Menu' />
-                    </a>
+                    </Link>
                     <Fragment>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href='/home/1' className="nav-link btn">Home</a>
+                                <Link to='/home/1' className="nav-link btn">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a href='/recent/1' className="nav-link btn">Recent</a>
+                                <Link to='/recent/1' className="nav-link btn">Recent</Link>
                             </li>
                             <li className="nav-item">
-                                <a href='/popular/1' className="nav-link btn">Popular</a>
+                                <Link to='/popular/1' className="nav-link btn">Popular</Link>
                             </li>
                         </ul>
                     </Fragment>
@@ -43,24 +44,24 @@ export function Header() {
                     </div>
                 </div>
             </nav>
-            <nav className="navbar navbar-expand-lg navbar-light d-block d-lg-none" style={{ background: '#ffbd7c' }}>
+            <nav className="navbar navbar-expand-lg navbar-light d-block d-lg-none" style={{ background: '#feae00' }}>
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
+                    <Link className="navbar-brand" to="/">
                         <img src={logo} height={70} alt='Menu' />
-                    </a>
+                    </Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <a href='/home/1' className="nav-link btn">Home</a>
+                                <Link to='/home/1' className="nav-link btn">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <a href='/recent/1' className="nav-link btn">Recent</a>
+                                <Link to='/recent/1' className="nav-link btn">Recent</Link>
                             </li>
                             <li className="nav-item">
-                                <a href='/popular/1' className="nav-link btn">Popular</a>
+                                <Link to='/popular/1' className="nav-link btn">Popular</Link>
                             </li>
                             <li className='nav-item'>
                                 <div className="d-flex">
