@@ -5,6 +5,10 @@ import { Header } from './Header';
 
 function Blog() {
     const { content, id, relatedTags, coverImage, subHeading, heading, blogTag } = (useLoaderData() || {});
+    const { pathname } = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
     return (
         <React.Fragment>
             <Header />
