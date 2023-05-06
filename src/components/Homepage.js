@@ -16,11 +16,14 @@ function mouseAction() {
     hiddenEle.forEach(el => observer.observe(el));
 }
 
+function navigatePage(page) {
+    let hashRoute = window.location.hash.split('/')
+    hashRoute[hashRoute.length - 1] = page
+    window.location.hash = hashRoute.join('/')
+}
+
 export function Homepage() {
     const { data = [], hasNext, hasPrev, page } = useLoaderData()
-    useEffect(() => {
-        mouseAction()
-    }, [])
     return <div>
         <Header />
         {data.length
@@ -29,15 +32,15 @@ export function Homepage() {
                     <BlogsList data={data} />
                 </div>
                 {(hasNext || hasPrev) && <nav aria-label="Page navigation example">
-                    <ul className="pagination pagination-lg justify-content-center">
-                        <li className={`page-item ${!hasPrev && 'disabled'}`}>
-                            <Link className="page-link" to={`/${page - 1}`}>&laquo;</Link>
-                        </li>
-                        <li className={`page-item ${!hasNext && 'disabled'}`}>
-                            <Link className="page-link" to={`/${page + 1}`}>&raquo;</Link>
-                        </li>
-                    </ul>
-                </nav>}
+                        <ul className="pagination pagination-lg justify-content-center">
+                            <li className={`page-item ${!hasPrev && 'disabled'}`}>
+                                <div className="page-link" onClick={() => navigatePage(page - 1)}>&laquo;</div>
+                            </li>
+                            <li className={`page-item ${!hasNext && 'disabled'}`}>
+                                <div className="page-link" onClick={() => navigatePage(page + 1)}>&raquo;</div>
+                            </li>
+                        </ul>
+                    </nav>}
             </div>
             : <div>
                 Oops We cannot find blog(s) with requested tag(s)

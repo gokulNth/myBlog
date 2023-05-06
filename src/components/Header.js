@@ -15,7 +15,7 @@ export function Header() {
         }
     }
     function handleSearch() {
-        window.location.hash = `/search/${searchTag}`
+        window.location.hash = `/search/${searchTag}/1`
     }
 
     return (
