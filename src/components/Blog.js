@@ -25,7 +25,7 @@ function Blog() {
                             }</div>
                             <br />
                             {subHeading ? <u><b><h3>{subHeading}</h3></b></u> : null}
-                            <div className="border border-secondary border-4 rounded">
+                            <div className="border border-secondary border-4 rounded" style={{ background: "#ffdb8d78"}}>
                                 <div className="px-2 mx-2" dangerouslySetInnerHTML={{ __html: content }} />
                             </div>
                         </div>
