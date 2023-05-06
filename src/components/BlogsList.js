@@ -12,18 +12,18 @@ export default function BlogsList(props) {
                 <div className="p-2 hiddEle" style={{ maxHeight: '50rem' }} key={index}>
                     <div className="card">
                         {heading && <div className="card-header">
-                            <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
+                            <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }}>
                                 {createHeading(heading)}
                             </Link>
                         </div>}
-                        {coverImage && <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-none d-lg-block">
+                        {coverImage && <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-none d-lg-block">
                             <img src={coverImage} style={{ height: '30rem', objectFit: 'cover' }} className="card-img-top" alt={id}></img>
                         </Link>}
-                        {coverImage && <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-block d-lg-none">
+                        {coverImage && <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-block d-lg-none">
                             <img src={coverImage} style={{ objectFit: 'cover' }} className="card-img-top" alt={id}></img>
                         </Link>}
                         <div className="card-body">
-                            <Link to={`/myBlog/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                            <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
                                 {subHeading && <h6 className="card-subtitle mb-2">{subHeading}</h6>}
                                 <footer className={`${subHeading && 'blockquote-footer'}`}>
                                     <p className="card-text">{partialContent}...</p>
