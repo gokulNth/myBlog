@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://kikisthoughts.onrender.com/';
 
 export async function getBlog({ params }) {
     const i = await fetch(`${BASE_URL}/${params.id}`);
