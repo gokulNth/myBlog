@@ -15,7 +15,7 @@ function Blog() {
             <div className="container my-2">
                 <div className="row">
                     {heading && <div className="text-center">{createHeading(heading)}</div>}
-                    {coverImage && <img src={coverImage} className="rounded mx-auto d-block" style={{ width: '70em', height: '35em', marginBottom: '2em' }} alt={`cover_${id}`} />}
+                    {coverImage && <img src={require(`../BlogData/Images/${coverImage}`)} className="rounded mx-auto d-block" style={{ width: '70em', height: '35em', marginBottom: '2em' }} alt={`cover_${id}`} loading="lazy" />}
                     <div className="col-md-10">
                         <div style={{ fontSize: '1.2rem' }}>
                             <div className="text-muted">{
@@ -24,7 +24,7 @@ function Blog() {
                                 })
                             }</div>
                             <br />
-                            {subHeading ? <u><b><h3>{subHeading}</h3></b></u> : null}
+                            {subHeading ? <u><b><h3><div dangerouslySetInnerHTML={{ __html: subHeading }}></div></h3></b></u> : null}
                             <div className="border border-secondary border-4 rounded" style={{ background: "#ffdb8d78"}}>
                                 <div className="px-2 mx-2" dangerouslySetInnerHTML={{ __html: content }} />
                             </div>
@@ -32,7 +32,7 @@ function Blog() {
                     </div>
                     <div className="col-md-2">
                         <div className="text-center" style={{ margin: '15px' }}>
-                            {relatedTags.length ? <div>Related Tags: <em>
+                            {relatedTags.length ? <div>Related Tags: <br/><em>
                                 {(relatedTags || []).map((tag, index) => {
                                     return <><Link key={index} to={`/tag/${tag.toLowerCase()}/1`} className="badge bg-secondary">{tag}</Link>&nbsp;</>
                                 })}

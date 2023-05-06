@@ -1,5 +1,6 @@
 import React from 'react'
 import errorPage from '../BlogData/Images/errorPage.webp'
+import noData from '../BlogData/Images/noData.png'
 import { Header } from './Header'
 
 export function ErrorPage() {
@@ -15,4 +16,16 @@ export function ErrorPage() {
             </div>
         </React.Fragment>
     )
+}
+
+export function EmptyPage() {
+    return <React.Fragment>
+        <div className='text-center'>
+            <img className='img-fluid rounded' style={{ objectFit: 'cover' }} src={noData} alt="NoData" />
+            <h1 style={{
+                color: '#8fc6ff',
+                textShadow: '1px 1px 1px #024a9f,1px 2px 1px #024a9f,1px 5px 1px #024a9f,1px 4px 1px #024a9f,1px 5px 1px #024a9f,1px 6px 1px #024a9f,1px 7px 1px #024a9f,1px 8px 1px #024a9f,1px 9px 1px #024a9f,1px 10px 1px #024a9f'
+            }}>No Data Found</h1>
+        </div>
+    </React.Fragment>
 }

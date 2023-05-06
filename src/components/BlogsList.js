@@ -17,14 +17,14 @@ export default function BlogsList(props) {
                             </Link>
                         </div>}
                         {coverImage && <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-none d-lg-block">
-                            <img src={coverImage} style={{ height: '30rem', objectFit: 'cover' }} className="card-img-top" alt={id}></img>
+                            <img src={require(`../BlogData/Images/${coverImage}`)} style={{ height: '30rem', objectFit: 'cover' }} className="card-img-top" alt={id} loading="lazy"></img>
                         </Link>}
                         {coverImage && <Link to={`/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-block d-lg-none">
-                            <img src={coverImage} style={{ objectFit: 'cover' }} className="card-img-top" alt={id}></img>
+                            <img src={require(`../BlogData/Images/${coverImage}`)} style={{ objectFit: 'cover' }} className="card-img-top" alt={id} loading="lazy"></img>
                         </Link>}
                         <div className="card-body">
                             <Link to={`/${id}`} style={{ textDecoration: 'none', color: 'black' }}>
-                                {subHeading && <h6 className="card-subtitle mb-2">{subHeading}</h6>}
+                                {subHeading && <h6 className="card-subtitle mb-2" dangerouslySetInnerHTML={{ __html: subHeading }} />}
                                 <footer className={`${subHeading && 'blockquote-footer'}`}>
                                     <p className="card-text">{partialContent}...</p>
                                 </footer>

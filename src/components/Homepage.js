@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLoaderData, useLocation } from 'react-router-dom';
 import BlogsList from './BlogsList';
 import { Header } from './Header'
+import { EmptyPage } from './ErrorPage';
 
 const observer = new IntersectionObserver(enteries => {
     enteries.forEach(entry =>
@@ -17,13 +18,13 @@ function mouseAction() {
 }
 
 function navigatePage(page) {
-    let hashRoute = window.location.hash.split('/')
-    hashRoute[hashRoute.length - 1] = page
-    window.location.hash = hashRoute.join('/')
+    let route = window.location.pathname.split('/')
+    route[route.length - 1] = page
+    window.location.pathname = route.join('/')
 }
 
 export function Homepage() {
-    const { data = [], hasNext, hasPrev, page } = useLoaderData()
+    const { data, hasNext, hasPrev, page } = useLoaderData()
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -47,9 +48,7 @@ export function Homepage() {
                         </ul>
                     </nav>}
             </div>
-            : <div>
-                Oops We cannot find blog(s) with requested tag(s)
-            </div>
+            : <EmptyPage />
         }
     </div>
 }

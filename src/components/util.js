@@ -1,7 +1,5 @@
 export function createHeading(heading) {
     return (
-        <h3 className="card-title">
-            {heading}
-        </h3>
+        <h3 className="card-title" dangerouslySetInnerHTML={{ __html: heading }} />
     )
 }
