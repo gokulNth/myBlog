@@ -17,7 +17,7 @@ function mouseAction() {
     hiddenEle.forEach(el => observer.observe(el));
 }
 
-export function HomePage() {
+export function Homepage() {
     const { blog, quote } = useLoaderData();
     const { data = [] } = blog;
     const { pathname } = useLocation();

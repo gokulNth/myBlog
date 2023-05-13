@@ -9,14 +9,14 @@ import { Blog, BlogsList } from './components/Blog';
 import { getBlog, getBlogs, getBlogsFromTag, getInitBlogs, getQuotes } from './API';
 import { ErrorPage, LoadingPage } from './components/ErrorPage';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
-import { HomePage } from './components/HomePage';
+import { Homepage } from './components/Homepage';
 import { QuotesList } from './components/Quote';
 
 if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
 const router = createHashRouter([{
   path: "/",
-  element: <HomePage />,
+  element: <Homepage />,
   loader: getInitBlogs,
   errorElement: <ErrorPage />
 }, {
@@ -41,7 +41,7 @@ const router = createHashRouter([{
   errorElement: <ErrorPage />
 }, {
   path: "/search/:searchStr/:page",
-  element: <HomePage />,
+  element: <Homepage />,
   loader: getInitBlogs,
   errorElement: <ErrorPage />
 }]);
