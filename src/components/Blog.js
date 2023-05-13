@@ -53,7 +53,7 @@ export function BlogsList() {
 
 export function SingleBlog(props) {
     const { blog = {} } = props;
-    const { id, heading, subHeading = null, partialContent, coverImage, createdTime } = blog || {};
+    const { id, heading, subHeading = null, partialContent, coverImage, createdTime, duration } = blog || {};
     return (
         <div className="p-2 hiddEle">
             <div className="col bloglistbg">
@@ -78,10 +78,10 @@ export function SingleBlog(props) {
                         </div>
                     </div>
                 </div>
-                <div className="card-footer">
-                    <div className='text-muted unselect text-end' style={{ fontSize: 13 }}>Blogged @ {new Date(parseInt(createdTime)).toLocaleString(navigator.languages[0], {
+                <div className="card-footer text-end">
+                    <nobr className='text-muted unselect' style={{ fontSize: 13 }}>Blogged @ {new Date(parseInt(createdTime)).toLocaleString(navigator.languages[0], {
                         year: 'numeric', month: 'short', day: 'numeric', hour: "2-digit", minute: "2-digit"
-                    })} | <span className="bg-danger rounded-pill text-light"><span className="m-1">1 minute read</span></span></div>
+                    })} </nobr> | <nobr className="bg-danger rounded-pill text-light"><span className="m-1">{duration} minute read</span></nobr>
                 </div>
             </div>
         </div>
@@ -103,7 +103,8 @@ export function Blog() {
             <Header />
             <div className="container my-2">
                 {heading && <div className="text-center">{createHeading(heading)}</div>}
-                {coverImage && <img src={require(`../BlogData/Images/Blog/${coverImage}`)} className="rounded mx-auto d-block" style={{ width: '70em', height: '35em', marginBottom: '2em' }} alt={`cover_${id}`} loading="lazy" />}
+                {coverImage && <img src={require(`../BlogData/Images/Blog/${coverImage}`)} className="rounded mx-auto d-none d-lg-block" style={{ width: '70vw', height: '35em', marginBottom: '2em' }} alt={`cover_${id}`} loading="lazy" />}
+                {coverImage && <img src={require(`../BlogData/Images/Blog/${coverImage}`)} className="rounded mx-auto d-block d-lg-none" style={{ width: '80vw', height: '15em', marginBottom: '2em' }} alt={`cover_${id}`} loading="lazy" />}
                 <div>
                     <div style={{ fontSize: '1.2rem' }}>
                         <div className="text-muted">{
