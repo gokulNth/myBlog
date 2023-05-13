@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import { useLoaderData, useLocation } from 'react-router-dom';
-import BlogsList from './BlogsList';
-import { Header } from './Header'
-import { EmptyPage } from './ErrorPage';
+import React, { Fragment, useEffect } from 'react'
+import { useLoaderData, useLocation } from 'react-router-dom'
+import { SingleBlog } from './Blog';
+import { Header } from './Header';
+import { Quote } from './Quote';
 
 const observer = new IntersectionObserver(enteries => {
     enteries.forEach(entry =>
@@ -17,38 +17,44 @@ function mouseAction() {
     hiddenEle.forEach(el => observer.observe(el));
 }
 
-function navigatePage(page) {
-    let route = window.location.hash.split('/')
-    route[route.length - 1] = page
-    window.location.hash = route.join('/')
-}
-
-export function Homepage() {
-    const { data, hasNext, hasPrev, page } = useLoaderData()
+export function HomePage() {
+    const { blog, quote } = useLoaderData();
+    const { data = [] } = blog;
     const { pathname } = useLocation();
     useEffect(() => {
         window.scrollTo(0, 0);
         mouseAction()
     }, [pathname]);
-    return <div>
-        <Header />
-        {data.length
-            ? <div className='container'>
-                <div className="row">
-                    <BlogsList data={data} />
+    return (
+        <Fragment>
+            <Header />
+            <div className='container mt-2 mb-2'>
+                <div className='container'>
+                    <h1 style={{fontFamily: 'cursive', fontWeight: 'bolder'}}>Blog Topics</h1>
+                    {data.length
+                        ? <div className="row row-cols-1 row-cols-md-1 g-4">
+                            {data.map((singleBlog, index) =>
+                                <SingleBlog blog={singleBlog} key={index} />
+                            )}
+                        </div>
+                        : null
+                    }
                 </div>
-                {(hasNext || hasPrev) && <nav aria-label="Page navigation example">
-                        <ul className="pagination pagination-lg justify-content-center">
-                            <li className={`page-item ${!hasPrev && 'disabled'}`}>
-                                <div className="page-link" onClick={() => navigatePage(page - 1)}>&laquo;</div>
-                            </li>
-                            <li className={`page-item ${!hasNext && 'disabled'}`}>
-                                <div className="page-link" onClick={() => navigatePage(page + 1)}>&raquo;</div>
-                            </li>
-                        </ul>
-                    </nav>}
+                <br />
+                <br /><br /><br /><br />
+                <div className='container mb-2'>
+                    <h1 style={{ fontFamily: 'cursive', fontWeight: 'bolder' }}>Quotes</h1>
+                    {quote.length
+                        ? <div className="row row-cols-1 row-cols-md-1 g-4">
+                            {quote.map((singleQuote, index) =>
+                                <Quote data={singleQuote} key={index} />
+                            )}
+                        </div>
+                        : null
+                    }
+                </div>
+                <br />
             </div>
-            : <EmptyPage />
-        }
-    </div>
+        </Fragment>
+    )
 }

@@ -20,7 +20,7 @@ export function Header() {
 
     return (
         <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block sticky-top" style={{ background: '#feae00'}}>
+            <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block" style={{ background: '#feae00'}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} height={100} alt='Menu' />
@@ -28,13 +28,13 @@ export function Header() {
                     <Fragment>
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to='/home/1' className="nav-link btn">Home</Link>
+                                <Link to='/about' className="nav-link btn">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/recent/1' className="nav-link btn">Recent</Link>
+                                <Link to='/blogs/1' className="nav-link btn">Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/popular/1' className="nav-link btn">Popular</Link>
+                                <Link to='/quotes/1' className="nav-link btn">Quote</Link>
                             </li>
                         </ul>
                     </Fragment>
@@ -55,13 +55,13 @@ export function Header() {
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item">
-                                <Link to='/home/1' className="nav-link btn">Home</Link>
+                                <Link to='/about' className="nav-link btn">About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/recent/1' className="nav-link btn">Recent</Link>
+                                <Link to='/blogs/1' className="nav-link btn">Blog</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to='/popular/1' className="nav-link btn">Popular</Link>
+                                <Link to='/quotes/1' className="nav-link btn">Quote</Link>
                             </li>
                             <li className='nav-item'>
                                 <div className="d-flex">

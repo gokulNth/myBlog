@@ -34,7 +34,7 @@ export function EmptyPage() {
 export function LoadingPage() {
     return (
         <React.Fragment>
-            <div className='text-center' style={{ marginTop: '35vh' }}>
+            <div className='text-center' style={{ margin: '15vh' }}>
                 <img src={loading} alt="Loading..." />
             </div>
         </React.Fragment>
