@@ -20,7 +20,7 @@ export function Header() {
 
     return (
         <Fragment>
-            <nav className="navbar navbar-expand-lg navbar-light d-none d-lg-block" style={{ background: '#feae00'}}>
+            <nav className="navbar navbar-expand-lg sticky-top navbar-light d-none d-lg-block" style={{ background: '#feae00'}}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} height={100} alt='Menu' />
@@ -38,13 +38,13 @@ export function Header() {
                             </li>
                         </ul>
                     </Fragment>
-                    <div className="d-flex">
+                    {/* <div className="d-flex">
                         <input onChange={onTagChange} onKeyDown={onSearchTagChange} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                         <button onClick={handleSearch} className="btn btn-outline-success">Search</button>
-                    </div>
+                    </div> */}
                 </div>
             </nav>
-            <nav className="navbar navbar-expand-lg navbar-light d-block d-lg-none" style={{ background: '#feae00' }}>
+            <nav className="navbar sticky-top navbar-expand-lg navbar-light d-block d-lg-none" style={{ background: '#feae00' }}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">
                         <img src={logo} height={70} alt='Menu' />
@@ -63,12 +63,12 @@ export function Header() {
                             <li className="nav-item">
                                 <Link to='/quotes/1' className="nav-link btn">Quote</Link>
                             </li>
-                            <li className='nav-item'>
+                            {/* <li className='nav-item'>
                                 <div className="d-flex">
                                     <input onChange={onTagChange} onKeyDown={onSearchTagChange} className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                                     <button onClick={handleSearch} className="btn btn-outline-success">Search</button>
                                 </div>
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
                 </div>

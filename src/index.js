@@ -6,11 +6,11 @@ import {
   RouterProvider
 } from "react-router-dom";
 import { Blog, BlogsList } from './components/Blog';
-import { getBlog, getBlogs, getBlogsFromTag, getInitBlogs, getQuotes } from './API';
+import { getBlog, getBlogs, getBlogsFromTag, getInitBlogs, getQuote, getQuotes } from './API';
 import { ErrorPage, LoadingPage } from './components/ErrorPage';
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 import { Homepage } from './components/Homepage';
-import { QuotesList } from './components/Quote';
+import { QuotesList, SingleQuote } from './components/Quote';
 
 if (process.env.NODE_ENV === 'production') disableReactDevTools();
 
@@ -34,7 +34,12 @@ const router = createHashRouter([{
   element: <QuotesList />,
   loader: getQuotes,
   errorElement: <ErrorPage />
-}, {
+  }, {
+  path: '/quote/:id',
+  element: <SingleQuote />,
+  loader: getQuote,
+  errorElement: <ErrorPage />
+  }, {
   path: "/tag/:tagName/:page",
   element: <BlogsList />,
   loader: getBlogsFromTag,

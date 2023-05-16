@@ -1,9 +1,16 @@
 const BASE_URL = (process.env.NODE_ENV === 'production') ? 'https://kikisapi.onrender.com' : "http://localhost:3001";
+export const CLIENT_BASE_URL = (process.env.NODE_ENV === 'production') ? 'https://kikisthoughts.onrender.com' : "http://localhost:3000";
 
 export async function getBlog({ params }) {
     const i = await fetch(`${BASE_URL}/blog/${params.id}`);
     const i_1 = await i.json();
     increaseCount(params.id)
+    return i_1.data;
+}
+
+export async function getQuote({ params }) {
+    const i = await fetch(`${BASE_URL}/quote/${params.id}`);
+    const i_1 = await i.json();
     return i_1.data;
 }
 
@@ -14,7 +21,8 @@ export async function getBlogContent({ params }) {
 
 export async function getBlogs({ params }) {
     const { page = 1 } = params;
-    const i = await fetch(`${BASE_URL}/blogs?_page=${page}`);
+    const sortBy = window.localStorage.getItem("blogFilter") || "createdTime"
+    const i = await fetch(`${BASE_URL}/blogs?_page=${page}&_sortBy=${sortBy}`);
     const i_1 = await i.json();
     return i_1.data;
 }
@@ -62,7 +70,7 @@ export async function searchBlogs({params}) {
 
 function increaseCount(id) {
     try {
-        if (sessionStorage.getItem("visited")) {
+        if (sessionStorage.getItem("visited") !== null) {
             const visitedList = sessionStorage.getItem("visited").split(",")
             if (!visitedList.includes(String(id))) {
                 fetch(`${BASE_URL}/blog/${id}`, {

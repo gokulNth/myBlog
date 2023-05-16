@@ -30,7 +30,7 @@ export function Homepage() {
             <Header />
             <div className='container mt-2 mb-2'>
                 <div className='container'>
-                    <h1 style={{fontFamily: 'cursive', fontWeight: 'bolder'}}>Blog Topics</h1>
+                    <h1 style={{fontFamily: 'cursive', fontWeight: 'bolder', marginTop: "2%"}}>Blog Topics</h1>
                     {data.length
                         ? <div className="row row-cols-1 row-cols-md-1 g-4">
                             {data.map((singleBlog, index) =>

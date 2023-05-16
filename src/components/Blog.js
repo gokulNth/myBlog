@@ -30,6 +30,20 @@ export function BlogsList() {
         <Fragment>
             <Header />
             <div className='container'>
+                {/* <nav class="navbar navbar-light bg-light mt-3">
+                    <div class="container row">
+                        <div class="navbar-brand col-3">
+                            <button type="button" class="btn btn-warning text-dark btn-sm">New</button>
+                            <button type="button" class="btn btn-warning text-dark btn-sm">Liked</button>
+                        </div>
+                        <div class="input-group w-auto col-8">
+                            <input type="text" class="form-control" placeholder="Search" aria-describedby="button-addon2" />
+                            <button class="btn btn-outline-dark" type="button" id="button-addon2">
+                                <img width="25" height="25" src="https://img.icons8.com/pulsar-line/48/search.png" alt="search" />
+                            </button>
+                        </div>
+                    </div>
+                </nav> */}
                 <div className="row row-cols-1 row-cols-md-1 g-4">
                     {data.length ?
                         (data || []).map((blog, index) => {
@@ -63,7 +77,7 @@ export function SingleBlog(props) {
                             <Link to={`/blog/${id}`} style={{ textDecoration: 'none', color: '#875000', boxShadow: '15px 15px 10px grey' }} className="d-none d-lg-block">
                                 <img src={require(`../BlogData/Images/Blog/${coverImage}`)} style={{ height: '100%', objectFit: 'cover' }} className="card-img-top" alt={id} loading="lazy"></img>
                             </Link>
-                            <Link to={`/blog/${id}`} style={{ textDecoration: 'none', color: '#875000' }} className="d-block d-lg-none">
+                            <Link to={`/blog/${id}`} style={{ textDecoration: 'none', color: '#875000', boxShadow: 'grey 0px 20px 16px 0px' }} className="d-block d-lg-none">
                                 <img src={require(`../BlogData/Images/Blog/${coverImage}`)} style={{ objectFit: 'cover' }} className="card-img-top" alt={id} loading="lazy"></img>
                             </Link>
                         </div>}
@@ -81,7 +95,7 @@ export function SingleBlog(props) {
                 <div className="card-footer text-end">
                     <nobr className='text-muted unselect' style={{ fontSize: 13 }}>Blogged @ {new Date(parseInt(createdTime)).toLocaleString(navigator.languages[0], {
                         year: 'numeric', month: 'short', day: 'numeric', hour: "2-digit", minute: "2-digit"
-                    })} </nobr> | <nobr className="bg-danger rounded-pill text-light"><span className="m-1">{duration} minute read</span></nobr>
+                    })} </nobr> | <nobr className="bg-danger rounded-pill text-light"><span className="m-2">{duration ? `${duration} minute read` : `Few seconds read`}</span></nobr>
                 </div>
             </div>
         </div>

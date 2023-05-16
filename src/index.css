@@ -1,6 +1,6 @@
 body {
-    background-image: url('https://cdn.wallpapersafari.com/92/43/epa9ZP.jpg');
-    background-size: contain;
+    background: url('./bgImage.jpeg') fixed;
+    background-size: cover;
 }
 
 .transparentbg {
