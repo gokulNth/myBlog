@@ -1,9 +1,8 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 import { createHeading, navigatePage } from "./util";
 import { EmptyPage, LoadingPage } from "./ErrorPage";
 import { Header } from "./Header";
-import { getBlogContent } from '../API/index';
 
 const observer = new IntersectionObserver(enteries => {
     enteries.forEach(entry =>
@@ -103,12 +102,8 @@ export function SingleBlog(props) {
 }
 
 export function Blog() {
-    const { id, relatedTags = [], coverImage, subHeading, heading, blogTag = [], views, duration } = (useLoaderData() || {});
-    const [content, setContent] = useState("")
+    const { id, relatedTags = [], coverImage, subHeading, heading, blogTag = [], views, duration, content } = (useLoaderData() || {});
     const { pathname } = useLocation();
-    useEffect(() => {
-        getBlogContent({ params: { id } }).then(i => i.text()).then(setContent)
-    }, [id])
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [pathname]);

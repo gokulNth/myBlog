@@ -5,7 +5,9 @@ export async function getBlog({ params }) {
     const i = await fetch(`${BASE_URL}/blog/${params.id}`);
     const i_1 = await i.json();
     increaseCount(params.id)
-    return i_1.data;
+    const content = await getBlogContent({ params })
+    const res = await content.text()
+    return { ...i_1.data, content: res };
 }
 
 export async function getQuote({ params }) {
